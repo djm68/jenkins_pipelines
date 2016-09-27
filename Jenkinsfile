@@ -1,21 +1,18 @@
 #!groovy
 
 node ("linux") {
-    stage 'Build' {
+    stage 'Build' 
         sh 'echo Building...'
-    }
     
-    stage 'Brick Tests' {
+    stage 'Brick Tests' 
         sh 'echo Running Brick Tests...'
-    }
 
-    stage 'Wait and Rest' {
+    stage 'Wait and Rest' 
         sh 'sleep 5'
         sh 'echo resting...'
-    }
 }
 
-stage 'Functional Tests' {
+stage 'Functional Tests' 
     parallel (
         "UPnP Suite" : { 
                          node ("linux") { 
@@ -28,4 +25,3 @@ stage 'Functional Tests' {
                            } 
                        }
               )
-}
