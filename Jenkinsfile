@@ -2,9 +2,15 @@
 
 node{
     stage 'Build'
-        sh 'echo "Build"'
+        echo 'Building...'
 
-    stage 'Test'
-        sh 'echo "Test"'
+    stage 'Brick Tests'
+        echo 'Running Brick Tests...'
+
+    parallel 'integration-tests':{
+        node('mvn-3.3'){}
+    }, 'functional-tests':{
+        node('selenium'){}
+    }
 }
 
