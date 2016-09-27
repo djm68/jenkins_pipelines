@@ -1,16 +1,10 @@
 #!groovy
 
-stage 'build'
-//build
 node{
-    sh 'echo "build"'
+    stage 'Build'
+        sh 'echo "Build"'
+
+    stage 'Test'
+        sh 'echo "Test"'
 }
 
-//stage 'test: brick'
-//brick test
-
-//stage 'test: smoke'
-//smoke test
-
-//stage 'test: functional'
-//functional test
